@@ -12,14 +12,19 @@
 
 ### Requirements
 
-- Python 3.11.4
+- python 3.11.4
+- pip 23.1.2
+- venv
 
 ### Setup
 
 > Note: use Python 3
 
 ```bash
-python -m
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --editable library/
+python -m pip install --editable frontends/
 ```
 
 ## License
