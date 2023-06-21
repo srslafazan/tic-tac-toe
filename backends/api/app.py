@@ -5,6 +5,7 @@ from tic_tac_toe.logic.models import (
     GameState,
     Grid,
     Mark,
+    Move,
     MoveType,
 )
 
@@ -57,6 +58,9 @@ Parameters:
     move (object): The move to make.
         move_type (MoveType)
         cell_index (int)
+
+Returns:
+    JSON serialized Move.
 """
 
 
@@ -72,10 +76,10 @@ def move():
         starting_mark=Mark(request.json["gamestate"]["starting_mark"]),
     )
     move_type = MoveType(request.json["move"]["move_type"])
-    new_gamestate = current_gamestate.make_move(
+    move: Move = current_gamestate.make_move(
         move_type, request.json["move"]["cell_index"]
     )
-    return jsonify(new_gamestate)
+    return jsonify(move.to_dict())
 
 
 if __name__ == "__main__":

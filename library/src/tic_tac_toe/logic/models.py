@@ -7,11 +7,6 @@ import re
 from dataclasses import dataclass
 from functools import cached_property
 
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from tic_tac_toe.logic.minimax import find_best_move
-
 from tic_tac_toe.logic.exceptions import InvalidMove, UnknownGameScore
 from tic_tac_toe.logic.validators import validate_game_state, validate_grid
 
@@ -70,6 +65,14 @@ class Move:
     cell_index: int
     before_state: "GameState"
     after_state: "GameState"
+
+    def to_dict(self):
+        return {
+            "mark": self.mark,
+            "cell_index": self.cell_index,
+            "before_state": self.before_state.to_dict(),
+            "after_state": self.after_state.to_dict(),
+        }
 
 
 @dataclass(frozen=True)
@@ -151,6 +154,11 @@ class GameState:
             ),
         )
 
+    def make_best_move(self) -> Move | None:
+        from tic_tac_toe.logic.minimax import find_best_move
+
+        return find_best_move(self)
+
     def to_dict(self):
         return {
             "grid": self.grid,
@@ -163,9 +171,6 @@ class GameState:
             "winning_cells": self.winning_cells,
             "possible_moves": self.possible_moves,
         }
-
-    def make_best_move(self) -> Move | None:
-        return find_best_move(self)
 
     def make_random_move(self) -> Move | None:
         try:
