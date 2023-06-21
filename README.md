@@ -21,7 +21,7 @@ python -m frontends.console -X human -O minimax
 
 ### Setup
 
-> Note: use Python 3
+> All of these libraries and applications require Python 3
 
 Set up a virtualenv:
 
