@@ -3,7 +3,7 @@ from typing import Callable, TypeAlias
 
 from tic_tac_toe.game.players import Player
 
-# from frontends.console.renderers import Renderer
+from frontends.console.renderers import Renderer
 from tic_tac_toe.logic.exceptions import InvalidMove
 from tic_tac_toe.logic.models import GameState, Grid, Mark
 from tic_tac_toe.logic.validators import validate_players
@@ -16,7 +16,7 @@ ErrorHandler: TypeAlias = Callable[[Exception], None]
 class TicTacToe:
     player1: Player
     player2: Player
-    # renderer: Renderer
+    renderer: Renderer
     renderer: any
     error_handler: ErrorHandler | None = None
 
