@@ -19,4 +19,4 @@ jobs:
         run: pip install pyproject.toml
       - name: Run unit tests
         working-directory: ./api
-        run: python -m unittest tests
+        run: python -m unittest tests.app
