@@ -15,6 +15,7 @@ if TYPE_CHECKING:
 from tic_tac_toe.logic.exceptions import InvalidMove, UnknownGameScore
 from tic_tac_toe.logic.validators import validate_game_state, validate_grid
 
+
 WINNING_PATTERNS = (
     "???......",
     "...???...",
@@ -149,6 +150,19 @@ class GameState:
                 self.starting_mark,
             ),
         )
+
+    def to_dict(self):
+        return {
+            "grid": self.grid,
+            "starting_mark": self.starting_mark,
+            "current_mark": self.current_mark,
+            "game_not_started": self.game_not_started,
+            "tie": self.tie,
+            "game_over": self.game_over,
+            "winner": self.winner,
+            "winning_cells": self.winning_cells,
+            "possible_moves": self.possible_moves,
+        }
 
     def make_best_move(self) -> Move | None:
         return find_best_move(self)

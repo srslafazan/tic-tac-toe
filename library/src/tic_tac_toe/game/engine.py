@@ -18,6 +18,7 @@ class TicTacToe:
     player2: Player
     renderer: any
     starting_mark: Mark = Mark("X")
+    game_state: GameState = GameState(Grid(), Mark("X"))
     error_handler: ErrorHandler | None = None
 
     def __post_init__(self):
@@ -25,7 +26,7 @@ class TicTacToe:
 
     @property
     def gamestate(self) -> GameState:
-        return GameState(Grid(), self.starting_mark)
+        return GameState(self.game_state.grid, self.starting_mark)
 
     def play(self, starting_mark: Mark = Mark("X")) -> None:
         game_state = GameState(Grid(), starting_mark)
