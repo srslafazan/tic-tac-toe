@@ -1,4 +1,10 @@
-# Tic Tac Toe API
+# Tic Tac Toe - Backends
+
+## Prerequisites
+
+- Set up your `.venv`
+- Install the library
+
 
 ## Setup
 

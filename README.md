@@ -13,31 +13,39 @@ python -m frontends.console -X human -O minimax
 
 ## Usage
 
-
-## Development
-
-
 ### Requirements
 
 - python 3.11.4
 - pip 23.1.2
-- venv
+- virtualenv 20.21.0
 
 ### Setup
 
 > Note: use Python 3
 
+Set up a virtualenv:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+```
+
+Install the library:
+
+```bash
 python -m pip install --editable library/
 ```
 
-## Console Game
+### Further Documentation
 
-```bash
-python -m frontends.console
-```
+The backend may be run as standalone API services.
+
+> See the [Backends README](backends/README.md)
+
+The game may be played via console.
+
+> See the [Frontends README](frontends/README.md)
+
 
 ## License
 
