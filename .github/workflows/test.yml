@@ -14,9 +14,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.11.4
-      - name: Install dependencies
-        working-directory: ./api
+      - name: Install build dependencies
+        working-directory: ./backends
         run: pip install pyproject.toml
+      - name: Install app dependencies
+        working-directory: ./backends
+        run: pip install -r requirements.txt
       - name: Run unit tests
-        working-directory: ./api
+        working-directory: ./backends
         run: python -m unittest tests.app

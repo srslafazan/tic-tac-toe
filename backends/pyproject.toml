@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api"
+# version = "1.0.0"
+# authors = [
+#     {name = "Shain Lafazan", email = "shain.codes@gmail.com"},
+# ]
+# description = "Tic Tac Toe API"
+# readme = "README.md"
+# requires-python = ">=3.11.4"
+# keywords = ["Python", "Flask", "Tic Tac Toe", "API"]
+# license = {text = "MIT"}
+# classifiers = [
+#     "Framework :: Flask",
+#     "Programming Language :: Python :: 3",
+# ]
+# dependencies = [
+#     "Flask == 2.3.2"
+# ]
+# dynamic = ["version"]
+
+# [project.scripts]
+# runserver = "src.app:__main__"
