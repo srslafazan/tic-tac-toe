@@ -1,7 +1,6 @@
 import argparse
 from typing import NamedTuple
 
-from tic_tac_toe.game.players import Player, RandomComputerPlayer
 from tic_tac_toe.logic.models import Mark
 
 from tic_tac_toe.game.players import (
