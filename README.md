@@ -32,6 +32,12 @@ source .venv/bin/activate
 python -m pip install --editable library/
 ```
 
+## Console Game
+
+```bash
+python -m frontends.console
+```
+
 ## License
 
 MIT
