@@ -1,5 +1,6 @@
 # Tic Tac Toe
 
+A stateless tic-tac-toe implementation in Python that supports human and/or computer players.
 
 [![Tests](https://github.com/srslafazan/tic-tac-toe/actions/workflows/test.yml/badge.svg)](https://github.com/srslafazan/tic-tac-toe/actions/workflows/tests.yml)
 
