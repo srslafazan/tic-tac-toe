@@ -3,6 +3,12 @@
 
 ![Tests](https://img.shields.io/github/workflow/status/srslafazan/tic-tac-toe/tests?label=tests)
 
+## TL;DR
+
+```bash
+python -m frontends.console -X human -O minimax
+```
+
 
 ## Usage
 
@@ -24,7 +30,6 @@
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --editable library/
-python -m pip install --editable frontends/
 ```
 
 ## License

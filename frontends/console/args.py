@@ -4,11 +4,18 @@ from typing import NamedTuple
 from tic_tac_toe.game.players import Player, RandomComputerPlayer
 from tic_tac_toe.logic.models import Mark
 
+from tic_tac_toe.game.players import (
+    Player,
+    RandomComputerPlayer,
+    MinimaxComputerPlayer,
+)
+
 from .players import ConsolePlayer
 
 PLAYER_CLASSES = {
     "human": ConsolePlayer,
     "random": RandomComputerPlayer,
+    "minimax": MinimaxComputerPlayer,
 }
 
 
@@ -30,7 +37,7 @@ def parse_args() -> Args:
         "-O",
         dest="player_o",
         choices=PLAYER_CLASSES.keys(),
-        default="random",
+        default="minimax",
     )
     parser.add_argument(
         "--starting",
