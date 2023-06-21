@@ -1,7 +1,7 @@
 # Tic Tac Toe
 
 
-![Tests](https://img.shields.io/github/workflow/status/srslafazan/tic-tac-toe/tests?label=tests)
+[![Tests](https://github.com/srslafazan/tic-tac-toe/actions/workflows/test.yml/badge.svg)](https://github.com/srslafazan/tic-tac-toe/actions/workflows/tests.yml)
 
 ## TL;DR
 

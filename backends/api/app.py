@@ -49,7 +49,7 @@ def create_game():
 
 
 """
-Creates the next game state.
+Creates the next game state from the previous game state.
 
 Parameters:
     gamestate (object): The current game state.
