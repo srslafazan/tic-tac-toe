@@ -49,16 +49,24 @@ def create_game():
 
 """
 Creates the next game state.
+
+Parameters:
+    gamestate (object): The current game state.
+        grid (Grid)
+        cells (str)
+    move (object): The move to make.
+        move_type (MoveType)
+        cell_index (int)
 """
 
 
 @app.route("/games", methods=["PUT"])
 def move():
     # Options:
-    # - Move Given and Player
-    # - Move Given and Computer
-    # - Move Not Given and Player -> Error
-    # - Move Not Given and Computer -> Computer Move
+    # - Move Given for Player -> Player Move
+    # - Move Given for Computer -> Player Move for Computer
+    # - Move Not Given, Player Turn -> Error
+    # - Move Not Given, Computer Turn -> Computer Move
     current_gamestate = GameState(
         Grid(request.json["gamestate"]["grid"]["cells"]),
         starting_mark=Mark(request.json["gamestate"]["starting_mark"]),

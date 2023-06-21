@@ -17,3 +17,9 @@ python -m src.app
 ```bash
 python -m unittest tests.app
 ```
+
+## Deploy
+
+```bash
+flask --app api/app.py run
+```
