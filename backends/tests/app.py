@@ -2,7 +2,7 @@ import unittest
 
 from flask.testing import FlaskClient
 
-from src.app import app
+from api.app import app
 
 
 class TestAPISanity(unittest.TestCase):
