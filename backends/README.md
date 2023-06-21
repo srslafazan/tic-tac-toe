@@ -15,7 +15,7 @@ python -m src.app
 ## Test
 
 ```bash
-python -m unittest tests.app
+python -m unittest discover tests
 ```
 
 ## Deploy

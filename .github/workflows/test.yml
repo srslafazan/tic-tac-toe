@@ -24,4 +24,4 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run unit tests
         working-directory: ./backends
-        run: python -m unittest tests.app
+        run: python -m unittest discover tests
