@@ -7,6 +7,11 @@ import re
 from dataclasses import dataclass
 from functools import cached_property
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from tic_tac_toe.logic.minimax import find_best_move
+
 from tic_tac_toe.logic.exceptions import InvalidMove, UnknownGameScore
 from tic_tac_toe.logic.validators import validate_game_state, validate_grid
 
@@ -50,6 +55,12 @@ class Grid:
     @cached_property
     def empty_count(self) -> int:
         return self.cells.count(" ")
+
+
+class MoveType(str, enum.Enum):
+    human = "human"
+    minimax = "minimax"
+    random = "random"
 
 
 @dataclass(frozen=True)
@@ -111,6 +122,17 @@ class GameState:
                 moves.append(self.make_move_to(match.start()))
         return moves
 
+    def make_move(self, move_type: MoveType, index: int) -> Move:
+        match move_type:
+            case MoveType.human:
+                return self.make_move_to(index)
+            case MoveType.minimax:
+                return self.make_best_move()
+            case MoveType.random:
+                return self.make_random_move()
+            case _:
+                raise ValueError("Invalid move type")
+
     def make_move_to(self, index: int) -> Move:
         if self.grid.cells[index] != " ":
             raise InvalidMove("Cell is not empty")
@@ -127,6 +149,9 @@ class GameState:
                 self.starting_mark,
             ),
         )
+
+    def make_best_move(self) -> Move | None:
+        return find_best_move(self)
 
     def make_random_move(self) -> Move | None:
         try:

@@ -1,0 +1,22 @@
+name: Run unit tests
+
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11.4
+      - name: Install dependencies
+        working-directory: ./api
+        run: pip install pyproject.toml
+      - name: Run unit tests
+        working-directory: ./api
+        run: python -m unittest tests

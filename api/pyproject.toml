@@ -1,0 +1,7 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel", "Flask==2.3.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api"
+version = "1.0.0"

@@ -25,6 +25,11 @@ class ConsoleRenderer(Renderer):
                 print("No one wins this time \N{neutral face}")
 
 
+class DataRenderer(Renderer):
+    def render(self, game_state: GameState) -> GameState:
+        return game_state
+
+
 def clear_screen() -> None:
     print("\033c", end="")
 

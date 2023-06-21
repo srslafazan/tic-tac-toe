@@ -3,7 +3,7 @@ from typing import Callable, TypeAlias
 
 from tic_tac_toe.game.players import Player
 
-from frontends.console.renderers import Renderer
+# from frontends.console.renderers import Renderer
 from tic_tac_toe.logic.exceptions import InvalidMove
 from tic_tac_toe.logic.models import GameState, Grid, Mark
 from tic_tac_toe.logic.validators import validate_players
@@ -16,12 +16,16 @@ ErrorHandler: TypeAlias = Callable[[Exception], None]
 class TicTacToe:
     player1: Player
     player2: Player
-    renderer: Renderer
     renderer: any
+    starting_mark: Mark = Mark("X")
     error_handler: ErrorHandler | None = None
 
     def __post_init__(self):
         validate_players(self.player1, self.player2)
+
+    @property
+    def gamestate(self) -> GameState:
+        return GameState(Grid(), self.starting_mark)
 
     def play(self, starting_mark: Mark = Mark("X")) -> None:
         game_state = GameState(Grid(), starting_mark)
