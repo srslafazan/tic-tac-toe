@@ -4,7 +4,7 @@ A stateless tic-tac-toe implementation in Python that supports human and/or comp
 
 [![Run unit tests](https://github.com/srslafazan/tic-tac-toe/actions/workflows/tests.yml/badge.svg)](https://github.com/srslafazan/tic-tac-toe/actions/workflows/tests.yml)
 
-![Tic Tac Toe Python Console](https://github.com/srslafazan/tic-tac-toe/assets/11346004/56b4761d-268d-4f87-848d-10d0eacad062)
+![Tic Tac Toe Python Console](https://github.com/srslafazan/tic-tac-toe/assets/11346004/efff2fea-8706-401b-8295-9a0a8de48a78)
 
 ## TL;DR
 
