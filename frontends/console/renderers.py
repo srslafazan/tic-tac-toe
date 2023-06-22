@@ -15,7 +15,6 @@ class Renderer(metaclass=abc.ABCMeta):
 class ConsoleRenderer(Renderer):
     def render(self, game_state: GameState) -> None:
         clear_screen()
-        print_solid(game_state.grid.cells)
         if game_state.winner:
             print_blinking(game_state.grid.cells, game_state.winning_cells)
             print(f"{game_state.winner} wins \N{party popper}")
