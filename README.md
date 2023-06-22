@@ -10,6 +10,8 @@ A stateless tic-tac-toe implementation in Python that supports human and/or comp
 python -m frontends.console -X human -O minimax
 ```
 
+![Tic Tac Toe Python Console](https://github.com/srslafazan/tic-tac-toe/assets/11346004/56b4761d-268d-4f87-848d-10d0eacad062)
+
 
 ## Usage
 
