@@ -78,5 +78,6 @@ class MinimaxComputerPlayer(ComputerPlayer):
 
 PLAYER_CLASSES = {
     "human": ClientPlayer,
+    "random": RandomComputerPlayer,
     "minimax": MinimaxComputerPlayer,
 }

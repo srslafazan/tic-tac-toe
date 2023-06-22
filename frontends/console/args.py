@@ -5,16 +5,14 @@ from tic_tac_toe.logic.models import Mark
 
 from tic_tac_toe.game.players import (
     Player,
-    RandomComputerPlayer,
-    MinimaxComputerPlayer,
+    PLAYER_CLASSES,
 )
 
 from .players import ConsolePlayer
 
-PLAYER_CLASSES = {
+PLAYER_CLASSES_CONSOLE = {
+    **PLAYER_CLASSES,
     "human": ConsolePlayer,
-    "random": RandomComputerPlayer,
-    "minimax": MinimaxComputerPlayer,
 }
 
 
@@ -29,13 +27,13 @@ def parse_args() -> Args:
     parser.add_argument(
         "-X",
         dest="player_x",
-        choices=PLAYER_CLASSES.keys(),
+        choices=PLAYER_CLASSES_CONSOLE.keys(),
         default="human",
     )
     parser.add_argument(
         "-O",
         dest="player_o",
-        choices=PLAYER_CLASSES.keys(),
+        choices=PLAYER_CLASSES_CONSOLE.keys(),
         default="minimax",
     )
     parser.add_argument(
@@ -47,8 +45,8 @@ def parse_args() -> Args:
     )
     args = parser.parse_args()
 
-    player1 = PLAYER_CLASSES[args.player_x](Mark("X"))
-    player2 = PLAYER_CLASSES[args.player_o](Mark("O"))
+    player1 = PLAYER_CLASSES_CONSOLE[args.player_x](Mark("X"))
+    player2 = PLAYER_CLASSES_CONSOLE[args.player_o](Mark("O"))
 
     if args.starting_mark == "O":
         player1, player2 = player2, player1
