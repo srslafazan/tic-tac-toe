@@ -126,7 +126,9 @@ class GameState:
                 moves.append(self.make_move_to(match.start()))
         return moves
 
-    def make_move(self, move_type: MoveType, index: int) -> Move:
+    def make_move(self, move_type: MoveType, index: int | None) -> Move:
+        if self.game_over:
+            raise InvalidMove("Game is over")
         match move_type:
             case MoveType.human:
                 return self.make_move_to(index)
