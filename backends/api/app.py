@@ -1,5 +1,6 @@
+import os
 from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from tic_tac_toe.game.engine import TicTacToe
 from tic_tac_toe.game.players import PLAYER_CLASSES
 from tic_tac_toe.logic.models import (
@@ -22,7 +23,6 @@ CORS(app)
 
 
 @app.route("/")
-@cross_origin()
 def index():
     return "Hello, world!"
 
@@ -42,7 +42,6 @@ Returns:
 
 
 @app.route("/games", methods=["POST"])
-@cross_origin()
 def create_game():
     body = request.get_json()
     player1 = PLAYER_CLASSES[body.get("player1")](Mark("X"))
@@ -70,7 +69,6 @@ Returns:
 
 
 @app.route("/games", methods=["PUT"])
-@cross_origin()
 def move():
     # Options:
     # - Move Given for Player -> Player Move
@@ -89,4 +87,4 @@ def move():
 
 
 if __name__ == "__main__":
-    app.run(use_reloader=True)
+    app.run(use_reloader=os.getenv("FLASK_USE_RELOADER") or True)
