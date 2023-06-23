@@ -87,4 +87,4 @@ def move():
 
 
 if __name__ == "__main__":
-    app.run(use_reloader=os.getenv("FLASK_USE_RELOADER") or True)
+    app.run(use_reloader=os.getenv("FLASK_USE_RELOADER") != "False")
