@@ -1,4 +1,5 @@
 import os
+from flasgger import swag_from
 from importlib.metadata import distribution
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -13,17 +14,23 @@ from tic_tac_toe.logic.models import (
     MoveType,
 )
 
+from .swagger import InitSwagger
+
+dist = distribution("api")
+
 app = Flask(__name__)
 
 CORS(app)
+InitSwagger(app)
 
 
 @app.route("/")
+@swag_from("specs/index.get.yml")
 def index():
     return jsonify(
         {
             "application": "tic_tac_toe.api",
-            "version": distribution("api").version,
+            "version": dist.version,
         }
     )
 
@@ -72,6 +79,7 @@ Returns:
 
 
 @app.route("/games", methods=["PUT"])
+@swag_from("specs/games.put.yml")
 def move():
     # Options:
     # - Move Given for Player -> Player Move

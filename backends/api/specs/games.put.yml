@@ -1,0 +1,112 @@
+Games endpoint. Creates the next game state from the previous game state.
+
+Accepts a GameState and Move.
+
+Returns a Move including the before and after GameStates.
+---
+definitions:
+  GameStateParameter:
+    type: object
+    properties:
+      grid:
+        type: object
+        properties:
+          cells:
+              type: string
+      starting_mark:
+        type: string
+        enum: ['X', 'O']
+  MoveParameter:
+    type: object
+    properties:
+      move:
+        type: string
+        enum: ['human', 'random', 'minimax']
+      cell_index:
+        type: integer
+  Move:
+    type: object
+    properties:
+      after_state:
+        type: array
+        items:
+          type: object
+          properties:
+            current_mark:
+              type: string
+              enum: ['X', 'O']
+            game_not_started:
+              type: boolean
+            game_over:
+              type: boolean
+            grid:
+              type: object
+              properties:
+                cells:
+                  type: string
+            possible_moves:
+              type: array
+              items:
+                type: object
+                properties:
+                  after_state:
+                    type: object
+                    properties:
+                      grid:
+                        type: object
+                        properties:
+                          cells:
+                            type: string
+                      starting_mark:
+                        type: string
+                        enum: ['X', 'O']
+                  before_state:
+                    type: object
+                    properties:
+                      grid:
+                        type: object
+                        properties:
+                          cells:
+                            type: string
+                      starting_mark:
+                        type: string
+                        enum: ['X', 'O']
+                  cell_index:
+                    type: integer
+                  mark:
+                    type: string
+                    enum: ['X', 'O']
+            starting_mark:
+              type: string
+              enum: ['X', 'O']
+            tie:
+              type: boolean
+            winner:
+              type: string
+              enum: ['X', 'O']
+            winning_cells:
+              type: array
+              items:
+                type: integer
+
+parameters:
+  - name: gamestate
+    in: body
+    type: object
+    required: true
+    default: {"grid": {"cells": "         "}, "starting_mark": "X"}
+    schema:
+      $ref: '#/definitions/GameStateParameter'
+  - name: move
+    in: body
+    type: object
+    required: true
+    default: {"move_type": "minimax", "cell_index": 1}
+    schema:
+      $ref: '#/definitions/MoveParameter'
+
+responses:
+  200:
+    description: A Move containing the before and after GameStates.
+    schema:
+      $ref: '#/definitions/Move'

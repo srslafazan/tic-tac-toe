@@ -1,0 +1,18 @@
+Root endpoint.
+
+Returns the package name and version.
+
+---
+definitions:
+  Version:
+    type: object
+    properties:
+      version:
+        type: string
+responses:
+  200:
+    description: The package version.
+    schema:
+      $ref: '#/definitions/Version'
+    examples:
+      version: 1.0.0
