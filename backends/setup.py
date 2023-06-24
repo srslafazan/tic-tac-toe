@@ -9,7 +9,5 @@ setup(
     url="https://github.com/srslafazan/tic-tac-toe.git",
     license="MIT",
     packages=["api"],
-    install_requires=[
-        "Flask == 2.3.2",
-    ],
+    install_requires=["flask==2.3.2", "flask_cors==3.0.10"],
 )

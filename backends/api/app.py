@@ -1,6 +1,8 @@
 import os
+import importlib.metadata
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from tic_tac_toe.game.renderers import DataRenderer
 from tic_tac_toe.game.engine import TicTacToe
 from tic_tac_toe.game.players import PLAYER_CLASSES
 from tic_tac_toe.logic.models import (
@@ -11,10 +13,7 @@ from tic_tac_toe.logic.models import (
     MoveType,
 )
 
-
-class DataRenderer:
-    def render(self, game_state: GameState) -> GameState:
-        return game_state
+version = importlib.metadata.version("api")
 
 
 app = Flask(__name__)
@@ -24,7 +23,12 @@ CORS(app)
 
 @app.route("/")
 def index():
-    return "Hello, world!"
+    return jsonify(
+        {
+            "application": "tic_tac_toe.api",
+            "version": version,
+        }
+    )
 
 
 """

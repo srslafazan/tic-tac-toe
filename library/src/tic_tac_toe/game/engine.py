@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from typing import Callable, TypeAlias
 
 from tic_tac_toe.game.players import Player
+from tic_tac_toe.game.renderers import Renderer
 
-# from frontends.console.renderers import Renderer
 from tic_tac_toe.logic.exceptions import InvalidMove
 from tic_tac_toe.logic.models import GameState, Grid, Mark
 from tic_tac_toe.logic.validators import validate_players
@@ -16,7 +16,7 @@ ErrorHandler: TypeAlias = Callable[[Exception], None]
 class TicTacToe:
     player1: Player
     player2: Player
-    renderer: any
+    renderer: Renderer
     starting_mark: Mark = Mark("X")
     game_state: GameState = GameState(Grid(), Mark("X"))
     error_handler: ErrorHandler | None = None

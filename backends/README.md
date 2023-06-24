@@ -6,16 +6,26 @@
 - Install the library
 
 
-## Setup
+## Setup (development)
+
+Activate your `.venv` if you haven't already:
 
 ```bash
-pip install pyproject.toml
+source ../.venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+python -m pip install pyproject.toml
+python -m pip install -r requirements.txt
+python -m pip install -r requirements.development.txt
 ```
 
 ## Start
 
 ```bash
-python -m src.app
+python -m api.app
 ```
 
 ## Test
@@ -24,8 +34,19 @@ python -m src.app
 python -m unittest discover tests
 ```
 
+Watch tests:
+```bash
+ptw
+```
+
 ## Deploy
 
+Install production dependencies:
+
 ```bash
-flask --app api/app.py run
+python -m pip install -r requirements.production.txt
+```
+
+```bash
+gunicorn
 ```

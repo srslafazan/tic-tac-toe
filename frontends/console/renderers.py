@@ -1,15 +1,9 @@
-import abc
 import textwrap
 from typing import Iterable
 
 
 from tic_tac_toe.logic.models import GameState
-
-
-class Renderer(metaclass=abc.ABCMeta):
-    @abc.abstractmethod
-    def render(self, game_state: GameState) -> None:
-        """Render the current game state."""
+from tic_tac_toe.game.renderers import Renderer
 
 
 class ConsoleRenderer(Renderer):
@@ -22,11 +16,6 @@ class ConsoleRenderer(Renderer):
             print_solid(game_state.grid.cells)
             if game_state.tie:
                 print("No one wins this time \N{neutral face}")
-
-
-class DataRenderer(Renderer):
-    def render(self, game_state: GameState) -> GameState:
-        return game_state
 
 
 def clear_screen() -> None:

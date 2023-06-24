@@ -1,0 +1,1 @@
+pytest_watch==4.2.0
