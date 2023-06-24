@@ -25,13 +25,14 @@ jobs:
 
       - name: Install build dependencies
         working-directory: ./backends
-        run: pip install pyproject.toml
+        run: python -m pip install pyproject.toml
 
       - name: Install app dependencies
         working-directory: ./backends
         run: |
-          pip install -r requirements.txt
-          pip install -r requirements.development.txt
+          python -m pip install -r requirements.txt
+          python -m pip install -r requirements.development.txt
+          python -m pip install .
 
       - name: Run unit tests
         working-directory: ./backends
