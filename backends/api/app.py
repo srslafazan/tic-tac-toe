@@ -1,5 +1,5 @@
 import os
-import importlib.metadata
+from importlib.metadata import distribution
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from tic_tac_toe.game.renderers import DataRenderer
@@ -13,9 +13,6 @@ from tic_tac_toe.logic.models import (
     MoveType,
 )
 
-version = importlib.metadata.version("api")
-
-
 app = Flask(__name__)
 
 CORS(app)
@@ -26,7 +23,7 @@ def index():
     return jsonify(
         {
             "application": "tic_tac_toe.api",
-            "version": version,
+            "version": distribution("api").version,
         }
     )
 

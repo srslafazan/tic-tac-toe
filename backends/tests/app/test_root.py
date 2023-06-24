@@ -1,4 +1,4 @@
-import importlib.metadata
+from importlib.metadata import distribution
 import unittest
 import json
 
@@ -10,7 +10,7 @@ from api.app import app
 class TestAPIRoot(unittest.TestCase):
     def setUp(self):
         self.client = FlaskClient(app)
-        self.version = importlib.metadata.version("api")
+        self.version = distribution("api").version
 
     def get_version_string(self):
         data = {
