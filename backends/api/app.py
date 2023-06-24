@@ -31,6 +31,8 @@ def index():
     )
 
 
+app.add_url_rule("/version", view_func=index)
+
 """
 Creates a new game with initial state.
 

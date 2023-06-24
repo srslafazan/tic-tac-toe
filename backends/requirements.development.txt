@@ -1,1 +1,2 @@
 pytest_watch==4.2.0
+coverage==7.2.7

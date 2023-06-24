@@ -31,12 +31,17 @@ python -m api.app
 ## Test
 
 ```bash
-python -m unittest discover tests
+python -m coverage run -m unittest discover tests
 ```
 
 Watch tests:
 ```bash
 ptw
+```
+
+Report coverage:
+```bash
+python -m coverage report
 ```
 
 ## Deploy
@@ -47,6 +52,8 @@ Install production dependencies:
 python -m pip install -r requirements.production.txt
 ```
 
+Run:
+
 ```bash
-gunicorn
+gunicorn wsgi:app
 ```
