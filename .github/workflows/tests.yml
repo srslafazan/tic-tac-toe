@@ -29,7 +29,9 @@ jobs:
 
       - name: Install app dependencies
         working-directory: ./backends
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements.development.txt
 
       - name: Run unit tests
         working-directory: ./backends
