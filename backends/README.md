@@ -31,7 +31,7 @@ python -m api.app
 
 The API development server runs on http://127.0.0.1:5000/ by default.
 
-> View the production docs at https://tic-tac-toe-backend-nksq.onrender.com/docs
+> View the production docs at https://tic-tac-toe-backends.fly.dev/docs
 > View the local docs at http://127.0.0.1:5000/docs
 
 ## Test

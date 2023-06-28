@@ -23,7 +23,7 @@ def InitSwagger(app):
             "specs_route": "/docs/",
             "servers": [
                 {
-                    "url": "https://tic-tac-toe-backend-nksq.onrender.com",
+                    "url": "https://tic-tac-toe-backends.fly.dev",
                     "description": "Production server",
                 }
             ],
