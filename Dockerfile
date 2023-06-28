@@ -13,5 +13,4 @@ RUN python -m pip install -r requirements.txt
 RUN python -m pip install -r requirements.production.txt
 RUN python -m pip install .
 
-CMD gunicorn wsgi:app
-
+CMD gunicorn --bind 0.0.0.0:8000 wsgi:app
