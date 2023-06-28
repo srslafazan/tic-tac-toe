@@ -1,0 +1,27 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "backends.api",
+      "type": "python",
+      "request": "launch",
+      "module": "api.app",
+      "justMyCode": true
+    },
+    {
+      "name": "frontends",
+      "type": "python",
+      "request": "launch",
+      "module": "frontends.console",
+      "args": [
+        "-X",
+        "human",
+        "-O",
+        "minimax"],
+      "justMyCode": true
+    }
+  ]
+}
