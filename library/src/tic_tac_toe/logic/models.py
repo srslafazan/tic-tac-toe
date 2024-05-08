@@ -36,7 +36,6 @@ class Mark(str, enum.Enum):
 class Grid:
     cells: str = " " * 9
 
-    # TODO - validation
     def __post_init__(self) -> None:
         validate_grid(self)
 
