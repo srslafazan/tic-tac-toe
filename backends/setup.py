@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name="api",
     title="Tic Tac Toe API",
-    version="1.0.0",
+    version="1.0.1",
     author="Shain Lafazan",
     author_email="shain.codes@gmail.com",
     description="Game Engine API for Tic Tac Toe",
